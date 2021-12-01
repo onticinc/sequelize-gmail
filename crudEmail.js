@@ -142,6 +142,14 @@ Email.update({
         console.log("ERROR updating email", err);
     });
 
+// Find By
+Email.findByPk(1)
+    .then(function (email) {
+        console.log(email.toJSON());
+    }).catch(function (err) {
+        console.log('Error finding global hit', err);
+    })
+
 
 // ******** Destroy
 
