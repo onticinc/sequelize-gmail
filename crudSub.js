@@ -99,26 +99,56 @@ Subscription.create({
 //         console.log('Error creating subscription', error)
 //     })
 
-Subscription.create({
-    title: 'cool app 4',
-    cost: '1.95',
-    subDate: '1-2-20',
-})
-    .then(function (newSubscription) {
-        console.log(newSubscription.toJSON());
-    })
-    .catch(function (error) {
-        console.log('Error creating subscription', error)
-    })
+// Subscription.create({
+//     title: 'cool app 4',
+//     cost: '1.95',
+//     subDate: '1-2-20',
+// })
+//     .then(function (newSubscription) {
+//         console.log(newSubscription.toJSON());
+//     })
+//     .catch(function (error) {
+//         console.log('Error creating subscription', error)
+//     })
 
-Subscription.create({
-    title: 'cool app 5',
-    cost: '8.95',
-    subDate: '3-2-18',
+// Subscription.create({
+//     title: 'cool app 5',
+//     cost: '8.95',
+//     subDate: '3-2-18',
+// })
+//     .then(function (newSubscription) {
+//         console.log(newSubscription.toJSON());
+//     })
+//     .catch(function (error) {
+//         console.log('Error creating subscription', error)
+//     })
+
+// ******** Update Subscription
+
+Subscription.update({
+    title: 'cloud extreme storage',
+    cost: '4.95',
+    subDate: '10-22-19',
+}, {
+    where: { id: 1 }
 })
-    .then(function (newSubscription) {
-        console.log(newSubscription.toJSON());
+    .then(function (arrayResponse) {
+        console.log('NUMBER OF ROWS UPDATED');
+        console.log(arrayResponse[0]); // datatype: 
     })
-    .catch(function (error) {
-        console.log('Error creating subscription', error)
+    .catch(function (err) {
+        console.log("ERROR with adding new team", err);
+    });
+
+
+// ******** Destroy
+
+Subscription.destroy({ where: { title: 'cool app 4' } })
+    .then(function (response) {
+        console.log('RESPONSE FROM DATABASE AFTER DELETING DATA...');
+        console.log(response);
     })
+    .catch(function (err) {
+        console.log("ERROR deleting subscription", err);
+    });
+
