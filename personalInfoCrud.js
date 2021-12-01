@@ -129,6 +129,13 @@ PersonalInfo.update({
         console.log("ERROR adding New Personal Info", err);
     });
 
+// Find By
+PersonalInfo.findByPk(2)
+    .then(function (personal) {
+        console.log(personal.toJSON());
+    }).catch(function (err) {
+        console.log('Error finding global hit', err);
+    })
 
 // ******** Destroy
 
